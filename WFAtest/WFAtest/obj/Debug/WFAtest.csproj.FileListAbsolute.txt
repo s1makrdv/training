@@ -1,0 +1,8 @@
+C:\Users\User\Documents\Project\C-sharp\WFAtest\WFAtest\bin\Debug\WFAtest.exe
+C:\Users\User\Documents\Project\C-sharp\WFAtest\WFAtest\bin\Debug\WFAtest.pdb
+C:\Users\User\Documents\Project\C-sharp\WFAtest\WFAtest\obj\Debug\WFAtest.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\Project\C-sharp\WFAtest\WFAtest\obj\Debug\WFAtest.Form1.resources
+C:\Users\User\Documents\Project\C-sharp\WFAtest\WFAtest\obj\Debug\WFAtest.Properties.Resources.resources
+C:\Users\User\Documents\Project\C-sharp\WFAtest\WFAtest\obj\Debug\WFAtest.csproj.GenerateResource.Cache
+C:\Users\User\Documents\Project\C-sharp\WFAtest\WFAtest\obj\Debug\WFAtest.exe
+C:\Users\User\Documents\Project\C-sharp\WFAtest\WFAtest\obj\Debug\WFAtest.pdb
