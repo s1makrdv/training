@@ -1,0 +1,79 @@
+//You are given an n x n 2D matrix that represents an image.Rotate the image by 90 degrees(clockwise).
+
+#include "stdafx.h"
+#include <iostream>
+#include <iomanip>
+#include <vector>
+
+using namespace std;
+
+bool rotateMatrix(vector<vector<char>>& a)
+{
+   bool isSuccess = true;
+   vector<vector<char>> v(a);
+   size_t size = v[0].size();
+   int k = 0;
+   for (int i = 0; i <= (size - 1); i++) {
+      for (int j = i + 1; j < (size - i); j++) {
+         k = v[j][size - i - 1];
+         v[j][size - i - 1] = v[i][j];
+         v[i][j] = v[size - j - 1][i];
+         v[size - j - 1][i] = v[size - 1 - i][size - 1 - j];
+         v[size - 1 - i][size - 1 - j] = k;
+      }
+   }
+   return isSuccess;
+}
+
+bool chekHorizontal(vector<vector<char>> grid) 
+{
+   bool isPass = false;
+   int sumHoriz = 0;
+   for (auto i : grid) {
+      for (auto j : i) {
+         if (j != '.') sumHoriz += (int)(j - '0');
+      }
+      if (sumHoriz != 9) { isPass = false; break; }
+      else { isPass = true; sumHoriz = 0;}
+   }
+
+   return isPass;
+}
+
+bool sudoku2(vector<vector<char>> grid)
+{
+   bool isSudoku = false;
+   
+   isSudoku = chekHorizontal(grid);
+   isSudoku = rotateMatrix(grid);
+   isSudoku = chekHorizontal(grid);
+   return isSudoku;
+}
+
+int main()
+{
+   vector<vector<char>> gridFalse = {  { '.', '.', '.', '.', '2', '.', '.', '9', '.' },
+                                       { '.', '.', '.', '.', '6', '.', '.', '.', '.' },
+                                       { '7', '1', '.', '.', '7', '5', '.', '.', '.' },
+                                       { '.', '7', '.', '.', '.', '.', '.', '.', '.' },
+                                       { '.', '.', '.', '.', '8', '3', '.', '.', '.' },
+                                       { '.', '.', '8', '.', '.', '7', '.', '6', '.' },
+                                       { '.', '.', '.', '.', '.', '2', '.', '.', '.' },
+                                       { '.', '1', '.', '2', '.', '.', '.', '.', '.' },
+                                       { '.', '2', '.', '.', '3', '.', '.', '.', '.' } };
+
+   vector<vector<char>> gridTrue =  {{ '.', '.', '.', '1', '4', '.', '.', '2', '.' },
+                                 { '.', '.', '6', '.', '.', '.', '.', '.', '.' },
+                                 { '.', '.', '.', '.', '.', '.', '.', '.', '.' },
+                                 { '.', '.', '1', '.', '.', '.', '.', '.', '.' },
+                                 { '.', '6', '7', '.', '.', '.', '.', '.', '9' },
+                                 { '.', '.', '.', '.', '.', '.', '8', '1', '.' },
+                                 { '.', '3', '.', '.', '.', '.', '.', '.', '6' },
+                                 { '.', '.', '.', '.', '.', '7', '.', '.', '.' },
+                                 { '.', '.', '.', '5', '.', '.', '.', '7', '.' } };
+
+   cout << "Grid is sudoku: " << (sudoku2(gridTrue) ? "True" : "False") << endl;
+   system("pause");
+   return 0;
+}
+
